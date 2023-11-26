@@ -1,0 +1,28 @@
+:root {
+  --color-darkest: #343a40;
+  --color-dark: #495057;
+  --color-medium: #ced4da;
+  --color-light: #f1f3f5;
+  --color-theme: #0f417a;
+  --color-accent: #ffc400;
+}
+
+body {
+  background-color: var(--color-darkest);
+}
+
+@font-face {
+  font-family: DimboRegular;
+  src: url('./fonts/Dimbo Regular.ttf');
+}
+
+.dimboText {
+  color: var(--color-accent);
+  text-align: center;
+  font-family: DimboRegular;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+}
+
+

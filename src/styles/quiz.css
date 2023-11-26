@@ -1,0 +1,111 @@
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.puff-loading {
+  justify-content: space-around;
+  align-items: center;
+  width: 80vw;
+  height: 80vh;
+}
+
+.quiz_progress_item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 80vw;
+  margin-top: 20px;
+}
+
+.quiz_progress_item p {
+  font-size: 2.5vh;
+  color: var(--color-medium);
+}
+
+.quiz_progress_item progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80vw;
+  height: 12px;
+  grid-column: 1 / -1;
+  border-radius: 100px;
+}
+
+.quiz_progress_item progress::-moz-progress-bar {
+  background-color: var(--color-theme);
+  border-radius: 100px;
+}
+
+.quiz_progress_item progress::-moz-progress-value {
+  background-color: var(--color-medium);
+  border-radius: 100px;
+}
+.quiz_progress_item progress::-webkit-progress-bar {
+  background-color: var(--color-medium);
+  border-radius: 100px;
+}
+
+.quiz_progress_item progress::-webkit-progress-value {
+  background-color: var(--color-theme);
+  border-radius: 100px;
+}
+
+.quiz_question_item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.quiz_question_item .timer {
+  font-size: 2.5vh;
+  color: var(--color-medium);
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+}
+
+.quiz_question_item div.question-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.question_photo_item {
+  width: 40vw;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.question_answers_item {
+  width: 40vw;
+  height: 70vh;
+}
+
+.question_answers_item ul {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+  list-style: none;
+}
+
+.question_answers_item li {
+  margin-top: 2vh;
+  background-color: var(--color-theme);
+  padding: 10px;
+  border: 3px solid white;
+  border-radius: 20px;
+  font-size: 3vh;
+}
+
+.question_answers_item li:hover {
+  background-color: var(--color-accent);
+  color: var(--color-theme);
+  cursor: pointer;
+}
