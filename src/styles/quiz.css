@@ -90,8 +90,8 @@
 }
 
 .question_answers_item ul {
-  margin-top: 15vh;
-  margin-bottom: 15vh;
+  margin-top: 12vh;
+  margin-bottom: 12vh;
   list-style: none;
 }
 
@@ -101,7 +101,7 @@
   padding: 10px;
   border: 3px solid white;
   border-radius: 20px;
-  font-size: 3vh;
+  font-size: 5vh;
 }
 
 .question_answers_item li:hover {

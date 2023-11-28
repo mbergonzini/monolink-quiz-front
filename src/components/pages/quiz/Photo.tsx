@@ -17,7 +17,6 @@ const Photo = (props: PhotoProps) => {
 
   useEffect(() => {
     if (image && image instanceof Blob) {
-      console.log(image)
       setImageUrl(URL.createObjectURL(image))
     }
   }, [image])

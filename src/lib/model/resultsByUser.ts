@@ -1,6 +1,6 @@
 class ResultsByUser {
     constructor(
-      public userName: string,
+      public mail: string,
       public percentage: number,
       public time: number
     ) {}

@@ -16,11 +16,11 @@ const Gestion = () => {
       const postImages = async () =>
         await addImagesZip(formData)
           .then((res) => {
-            console.log(res)
+            console.log(res.message)
             const postQuestion = async () =>
               addAllQuestions(questions)
                 .then((res) => {
-                  console.log(res)
+                  console.log(res.message)
                 })
                 .catch((err) => {
                   console.log(err)
@@ -33,7 +33,7 @@ const Gestion = () => {
 
       postImages()
     }
-  }, [imagesZip, load, questions])
+  }, [load])
 
   const loadFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {

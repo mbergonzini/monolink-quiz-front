@@ -62,3 +62,10 @@ label {
   text-decoration: none;
   margin: 2vw;
 }
+
+.input-group-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

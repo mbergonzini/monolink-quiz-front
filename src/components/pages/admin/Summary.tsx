@@ -72,7 +72,7 @@ const Summary = () => {
           <ul>
             {bestResults?.map((result, index) => (
               <li key={index} className="dashboard-string">
-                {index + 1} - {result.userName} - {result.percentage.toFixed(2)}% en {result.time.toFixed(2)}s
+                {index + 1} - {result.mail} - {result.percentage.toFixed(2)}% en {result.time.toFixed(2)}s
               </li>
             ))}
           </ul>
@@ -82,7 +82,7 @@ const Summary = () => {
           <ul>
             {worstResults?.map((result, index) => (
               <li key={index} className="dashboard-string">
-                {index + 1} - {result.userName} - {result.percentage.toFixed(2)}% en {result.time.toFixed(2)}s
+                {index + 1} - {result.mail} - {result.percentage.toFixed(2)}% en {result.time.toFixed(2)}s
               </li>
             ))}
           </ul>

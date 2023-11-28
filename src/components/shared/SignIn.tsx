@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../../lib/hooks/useAuth'
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useUser } from '../../lib/hooks/useUser'
 import { Link, useNavigate } from 'react-router-dom'
 import ErrorMessages from './ErrorMessages'
@@ -9,6 +10,7 @@ import { ApiError } from '../../lib/model/error'
 const SignIn = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordType, setPasswordType] = useState("password");
   const [hasError, setHasError] = useState<boolean>(false)
   const [errorMessages, setErrorMessages] = useState<string[]>([])
   const { authenticate } = useAuth()
@@ -25,6 +27,15 @@ const SignIn = () => {
       updateUserState(response);
       navigate('/')
     }
+  }
+
+  const togglePassword =()=>{
+    if(passwordType==="password")
+    {
+     setPasswordType("text")
+     return;
+    }
+    setPasswordType("password")
   }
 
   return (
@@ -45,13 +56,18 @@ const SignIn = () => {
           </div>
           <div className="form-group mt-3">
             <label>Mot de passe</label>
+            <div className="input-group-btn">
               <input
-                type="password"
+                type={passwordType}
                 value={password}
-                placeholder='Entrez votre mot de passe'
-                className='form-control mt-1'
+                placeholder="Entrez un mot de passe"
+                className="form-control mt-1"
                 onChange={(event) => setPassword(event.target.value)}
               />
+              <button className="btn" onClick={togglePassword} type='button'>
+                { passwordType==="password"? <FaRegEye/> : <FaRegEyeSlash/> }
+              </button>
+            </div>
           </div>
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">Se connecter</button>

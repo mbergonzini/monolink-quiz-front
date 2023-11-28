@@ -41,7 +41,7 @@ const UserDetail = () => {
             <tbody className='dashboard-string'>
               {bestResults?.map((result, index) => (
                 <tr key={index}>
-                  <td>{result.userName}</td>
+                  <td>{result.mail}</td>
                   <td align='center'>{result.percentage.toFixed(2)} %</td>
                   <td align='center'>{result.time.toFixed(2)} s</td>
                 </tr>

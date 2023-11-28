@@ -4,7 +4,6 @@ import Quiz from '../../components/pages/quiz/Quiz';
 import UserResults from '../../components/pages/results/UserResults';
 import Dashboard from '../../components/pages/admin/Dashboard';
 import ProtectedRoute from './protectedRoute';
-import FinalResults from '../../components/pages/results/FinalResults';
 import SignInScreen from '../../components/pages/auth/SignInScreen';
 import SignUpScreen from '../../components/pages/auth/SignUpScreen';
 import SignOutScreen from '../../components/pages/auth/SignOutScreen';
@@ -22,10 +21,6 @@ const routes: RouteObject[] = [
   {
     path: '/results',
     element: <UserResults />,
-  },
-  {
-    path: '/final-results',
-    element: <FinalResults />,
   },
   {
     path: '/admin',

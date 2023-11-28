@@ -48,7 +48,7 @@ const SignOut = () => {
               {message}
             </p>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">Acceuil</button>
+            <button type="submit" className="btn btn-primary">Accueil</button>
           </div>
         </div>
       </form>

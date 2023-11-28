@@ -1,4 +1,5 @@
 import { useState} from 'react'
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useAuth } from '../../lib/hooks/useAuth'
 import { Link, useNavigate } from 'react-router-dom'
 import { ApiErrorDetails, ErrorDetailsField } from '../../lib/model/error'
@@ -9,6 +10,7 @@ const SignUp = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordType, setPasswordType] = useState("password");
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
   const [hasError, setHasError] = useState<boolean>(false);
   const [isRegistered, setIsRegistered] = useState<boolean>(false);
@@ -34,6 +36,15 @@ const SignUp = () => {
   const signIn = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     navigate('/signIn')
+  }
+
+  const togglePassword =()=>{
+    if(passwordType==="password")
+    {
+     setPasswordType("text")
+     return;
+    }
+    setPasswordType("password")
   }
 
   if (isRegistered) {
@@ -104,13 +115,18 @@ const SignUp = () => {
           </div>
           <div className="form-group mt-3">
             <label>Mot de passe</label>
-            <input
-            type="password"
-            value={password}
-            placeholder="Entrez un mot de passe"
-            className="form-control mt-1"
-            onChange={(event) => setPassword(event.target.value)}
-          />
+            <div className="input-group-btn">
+              <input
+                type={passwordType}
+                value={password}
+                placeholder="Entrez un mot de passe"
+                className="form-control mt-1"
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <button className="btn" onClick={togglePassword} type='button'>
+                { passwordType==="password"? <FaRegEye/> : <FaRegEyeSlash/> }
+              </button>
+            </div>
           </div>
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
