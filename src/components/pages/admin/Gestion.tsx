@@ -1,39 +1,35 @@
 import '../../../styles/admin.css'
 import { useAdmin } from '../../../lib/hooks/useAdmin'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Question from '../../../lib/model/question'
 
 const Gestion = () => {
   const { addImagesZip, addAllQuestions } = useAdmin()
   const [imagesZip, setImagesZip] = useState<File>()
   const [questions, setQuestions] = useState<Question[]>([])
-  const [load, setLoad] = useState<boolean>(false)
+  const [messages, setMessages] = useState<string>("")
+  const [countImages, setCountImages] = useState<number>(0)
+  const [countQuestions, setCountQuestions] = useState<number>(0)
 
-  useEffect(() => {
-    if (load && imagesZip && questions) {
+  const saveImages = async () => {
+    if (imagesZip) {
       const formData = new FormData()
       formData.append('file', imagesZip)
-      const postImages = async () =>
-        await addImagesZip(formData)
-          .then((res) => {
-            console.log(res.message)
-            const postQuestion = async () =>
-              addAllQuestions(questions)
-                .then((res) => {
-                  console.log(res.message)
-                })
-                .catch((err) => {
-                  console.log(err)
-                })
-            postQuestion()
-          })
-          .catch((err) => {
-            console.log(err)
-          })
-
-      postImages()
+      const res = await addImagesZip(formData)
+        setMessages(res.message)  
+        setCountImages(res.count)
+      
+        
     }
-  }, [load])
+  }
+
+  const saveQuestions = async () => {
+    if (questions && questions.length > 0) {
+      const res = await addAllQuestions(questions)
+        setMessages(res.message)
+        setCountQuestions(res.count)
+    }
+  }
 
   const loadFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -65,6 +61,11 @@ const Gestion = () => {
             className="mt-1 form-control"
             onChange={loadFile}
           />
+          <div className="d-grid gap-2 mt-3">
+            <button className="btn btn-primary" onClick={() => saveImages()}>
+              Envoyer les images
+            </button>
+          </div>
         </div>
         <div className="form-group mt-3">
           <label>Importer des questions</label>
@@ -73,11 +74,16 @@ const Gestion = () => {
             className="mt-1 form-control"
             onChange={loadJson}
           />
+          <div className="d-grid gap-2 mt-3">
+            <button className="btn btn-primary" onClick={() => saveQuestions()}>
+              Envoyer les questions
+            </button>
+          </div>
         </div>
-        <div className="d-grid gap-2 mt-3">
-          <button className="btn btn-primary" onClick={() => setLoad(true)}>
-            Envoyer
-          </button>
+        <div className="mt-3">
+          <p style={{ color: 'green', fontSize: '2vw'}}>{messages}</p>
+          <p style={{ color: 'green', fontSize: '2vw'}}>{countImages} images importées</p>
+          <p style={{ color: 'green', fontSize: '2vw'}}>{countQuestions} questions importées</p>
         </div>
       </div>
     </div>

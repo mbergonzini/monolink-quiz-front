@@ -1,5 +1,4 @@
-import ApiMessage from '../../model/apiMessage';
-import { ApiError } from '../../model/error';
+import { ImportMessage } from '../../model/importMessage';
 import Question from '../../model/question';
 import ResultsByPhoto from '../../model/resultsByPhoto';
 import ResultsByUser from '../../model/resultsByUser';
@@ -21,12 +20,12 @@ export function getResultsByPhoto(apiUrl: string): Promise<ResultsByPhoto[]> {
   return getRequest<ResultsByPhoto[]>(`${apiUrl}api/admin/resultsByQuestion`)
 }
 
-export function addQuestions(apiUrl: string, questions: Question[]): Promise<ApiMessage | ApiError> {
-  return postRequest<ApiMessage | ApiError>(`${apiUrl}api/questions`, questions)
+export function addQuestions(apiUrl: string, questions: Question[]): Promise<ImportMessage> {
+  return postRequest<ImportMessage>(`${apiUrl}api/questions`, questions)
 }
 
-export function addImages(apiUrl: string, images: FormData): Promise<ApiMessage | ApiError> {
-  return postRequestFile<ApiMessage | ApiError>(`${apiUrl}api/images`, images)
+export function addImages(apiUrl: string, images: FormData): Promise<ImportMessage> {
+  return postRequestFile<ImportMessage>(`${apiUrl}api/images`, images)
 }
 
 

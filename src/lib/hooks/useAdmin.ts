@@ -1,9 +1,8 @@
 import { useApi } from "./useApi";
 import ResultsByUser from "../model/resultsByUser";
 import ResultsByPhoto from "../model/resultsByPhoto";
-import ApiMessage from "../model/apiMessage";
-import { ApiError } from "../model/error";
 import Question from "../model/question";
+import { ImportMessage } from "../model/importMessage";
 
 export const useAdmin = () => {
   const { countParticipation, countFinishedQuiz, getResultsByUser, getResultsByPhoto, addQuestions, addImages } = useApi();
@@ -29,12 +28,12 @@ export const useAdmin = () => {
     }
 
     const addAllQuestions = async (questions: Question[]) => {
-        const message: ApiMessage | ApiError = await addQuestions(questions);
+        const message: ImportMessage = await addQuestions(questions);
         return message;
     }
 
     const addImagesZip = async (images: FormData) => {
-        const message: ApiMessage | ApiError = await addImages(images);
+        const message: ImportMessage = await addImages(images);
         return message;
     }
 
