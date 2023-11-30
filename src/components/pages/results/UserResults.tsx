@@ -28,17 +28,17 @@ const UserResults = () => {
     const hrs = ~~(seconds / 3600);
     const mins = ~~((seconds % 3600) / 60);
     const secs = ~~seconds % 60;
-  
+
     // Output like "1:01" or "4:03:59" or "123:03:59"
     let ret = "";
-  
+
     if (hrs > 0) {
-      ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+      ret += "" + hrs + "h " + (mins < 10 ? "0" : "");
     }
-  
-    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-    ret += "" + secs;
-  
+
+    ret += "" + mins + "m " + (secs < 10 ? "0" : "");
+    ret += "" + secs + "s";
+
     return ret;
   }
 
@@ -46,10 +46,10 @@ const UserResults = () => {
     <div className="results_container">
       <AuthBar />
       <TopTitle />
-      <div className='results-content'>  
+      <div className='results-content'>
           <h3 className='results-title'>Résultats</h3>
           <div className="text-center mt-2">
-            <h4>Pourcentage de bonne réponse: {Math.round(percentage)}% ({note})</h4>
+            <h4>% de bonne réponse: {Math.round(percentage)}% ({note})</h4>
             <h4>Temps passé: {timeFormat(time)}</h4>
           </div>
       </div>
