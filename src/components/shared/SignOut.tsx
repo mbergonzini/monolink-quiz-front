@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../lib/hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
-import '/src/styles/Auth.css'
+import '/src/styles/auth.css'
 import { useUser } from '../../lib/hooks/useUser'
 
 const SignOut = () => {

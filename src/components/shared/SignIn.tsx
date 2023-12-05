@@ -4,7 +4,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useUser } from '../../lib/hooks/useUser'
 import { Link, useNavigate } from 'react-router-dom'
 import ErrorMessages from './ErrorMessages'
-import '/src/styles/Auth.css'
+import '/src/styles/auth.css'
 import { ApiError } from '../../lib/model/error'
 
 const SignIn = () => {

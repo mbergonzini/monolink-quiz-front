@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { UserContext } from '../../lib/utils/provider/userProvider'
 import { Link } from 'react-router-dom'
-import '/src/styles/Auth.css'
+import '/src/styles/auth.css'
 
 const AuthBar = () => {
   const userState = useContext(UserContext)

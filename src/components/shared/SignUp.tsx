@@ -4,7 +4,7 @@ import { useAuth } from '../../lib/hooks/useAuth'
 import { Link, useNavigate } from 'react-router-dom'
 import { ApiErrorDetails, ErrorDetailsField } from '../../lib/model/error'
 import ErrorMessages from './ErrorMessages'
-import '/src/styles/Auth.css'
+import '/src/styles/auth.css'
 
 const SignUp = () => {
   const [username, setUsername] = useState('')
